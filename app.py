@@ -197,35 +197,57 @@ st.markdown("---")
 col_left, col_right = st.columns([3, 2], gap="large")
 
 with col_left:
-    st.markdown('<p class="section-label">Sentiment overview — all 5 products</p>', unsafe_allow_html=True)
-    overview = []
-    for short in short_names:
-        sub = df[df["short_name"] == short]
-        overview.append({"Product": short,
-                         "Positive": (sub["sentiment"] == "Positive").sum(),
-                         "Neutral":  (sub["sentiment"] == "Neutral").sum(),
-                         "Negative": (sub["sentiment"] == "Negative").sum(),
-                         "pct_neg":  (sub["sentiment"] == "Negative").mean() * 100})
-    ov_df = pd.DataFrame(overview).set_index("Product")
+    with col_left:
+        st.markdown('<p class="section-label">Sentiment overview — all 5 products (% of reviews)</p>', unsafe_allow_html=True)
+        overview = []
+        for short in short_names:
+            sub = df[df["short_name"] == short]
+            total_sub = len(sub)
+            overview.append({
+                "Product": short,
+                "Positive": (sub["sentiment"] == "Positive").sum() / total_sub * 100,
+                "Neutral":  (sub["sentiment"] == "Neutral").sum()  / total_sub * 100,
+                "Negative": (sub["sentiment"] == "Negative").sum() / total_sub * 100,
+                "pct_neg":  (sub["sentiment"] == "Negative").mean() * 100,
+                "n":        total_sub,
+            })
+        ov_df = pd.DataFrame(overview).set_index("Product")
 
-    fig, ax = plt.subplots(figsize=(7, 3.4))
-    fig.patch.set_facecolor(SURFACE); ax.set_facecolor(SURFACE)
-    x, w = range(len(ov_df)), 0.28
-    ax.bar([i - w for i in x], ov_df["Positive"], width=w, color="#4ade80", label="Positive", zorder=3)
-    ax.bar([i     for i in x], ov_df["Neutral"],  width=w, color="#facc15", label="Neutral",  zorder=3)
-    ax.bar([i + w for i in x], ov_df["Negative"], width=w, color="#f87171", label="Negative", zorder=3)
-    for idx, (short, row) in enumerate(ov_df.iterrows()):
-        if row["pct_neg"] > 30:
-            ax.annotate("⚠", xy=(idx + w, row["Negative"]), xytext=(0, 4),
+        fig, ax = plt.subplots(figsize=(7, 3.4))
+        fig.patch.set_facecolor(SURFACE); ax.set_facecolor(SURFACE)
+        x = range(len(ov_df))
+        w = 0.55  # wider bars since they're stacked now
+
+        # Draw stacked bars
+        bars_pos = ax.bar(x, ov_df["Positive"], width=w, color="#4ade80", label="Positive", zorder=3)
+        bars_neu = ax.bar(x, ov_df["Neutral"],  width=w, color="#facc15", label="Neutral",
+                      bottom=ov_df["Positive"], zorder=3)
+        bars_neg = ax.bar(x, ov_df["Negative"], width=w, color="#f87171", label="Negative",
+                      bottom=ov_df["Positive"] + ov_df["Neutral"], zorder=3)
+
+        # Label the negative % on top of each bar + review count below x-axis
+        for idx, (short, row) in enumerate(ov_df.iterrows()):
+            # Warn flag if high negative rate
+            if row["pct_neg"] > 30:
+                ax.annotate("⚠", xy=(idx, 100), xytext=(0, 4),
                         textcoords="offset points", ha="center", fontsize=10, color="#f87171")
-    ax.set_xticks(list(x))
-    ax.set_xticklabels([s.split(" — ")[0] for s in ov_df.index], color=TEXT, fontsize=9, fontfamily="monospace")
-    ax.tick_params(axis="y", colors=MUTED, labelsize=9)
-    ax.spines[:].set_visible(False)
-    ax.yaxis.grid(True, color=BORDER, linewidth=0.5, zorder=0)
-    ax.set_axisbelow(True)
-    ax.legend(frameon=False, labelcolor=MUTED, prop={"family": "monospace", "size": 9}, ncol=3, loc="upper right")
-    plt.tight_layout(pad=0.5); st.pyplot(fig); plt.close()
+            # Show n= under each product label
+            ax.text(idx, -7, f"n={row['n']:,}", ha="center", va="top",
+                fontsize=8, color=MUTED, fontfamily="monospace")
+
+        ax.set_xticks(list(x))
+        ax.set_xticklabels([s.split(" — ")[0] for s in ov_df.index], color=TEXT, fontsize=9, fontfamily="monospace")
+        ax.set_ylim(0, 110)
+        ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda val, _: f"{int(val)}%"))
+        ax.tick_params(axis="y", colors=MUTED, labelsize=9)
+        ax.spines[:].set_visible(False)
+        ax.yaxis.grid(True, color=BORDER, linewidth=0.5, zorder=0)
+        ax.set_axisbelow(True)
+        ax.legend(frameon=False, labelcolor=MUTED, prop={"family": "monospace", "size": 9},
+              ncol=3, loc="upper right")
+        plt.tight_layout(pad=0.5)
+        st.pyplot(fig)
+        plt.close()
 
 with col_right:
     st.markdown('<p class="section-label">Sentiment split — selected product</p>', unsafe_allow_html=True)
