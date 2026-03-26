@@ -9,55 +9,147 @@ st.set_page_config(page_title="FusionTech AI Review Intelligence", page_icon="�
 
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Space+Grotesk:wght@300;400;600;700&display=swap');
-html, body, [class*="css"] { font-family: 'Space Grotesk', sans-serif; background-color: #0d0d0f; color: #e8e4dc; }
-.stApp { background-color: #0d0d0f; }
-section[data-testid="stSidebar"] { background: #111115; border-right: 1px solid #2a2a35; }
-[data-testid="metric-container"] { background: #16161e; border: 1px solid #2a2a35; border-radius: 8px; padding: 16px; }
-[data-testid="metric-container"] label { color: #888 !important; font-family: 'IBM Plex Mono', monospace !important; font-size: 11px !important; text-transform: uppercase; letter-spacing: 0.08em; }
-[data-testid="metric-container"] [data-testid="stMetricValue"] { font-family: 'IBM Plex Mono', monospace !important; font-size: 26px !important; font-weight: 600 !important; color: #f5f0e8 !important; }
-h1, h2, h3 { font-family: 'Space Grotesk', sans-serif !important; letter-spacing: -0.02em; }
-.stSelectbox label { color: #aaa !important; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; }
-.stTable table { background: #16161e; border: 1px solid #2a2a35; border-radius: 6px; }
-.stTable th { background: #1e1e28 !important; color: #888 !important; font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 1px solid #2a2a35 !important; }
-.stTable td { color: #e8e4dc !important; font-size: 13px; border-color: #1e1e28 !important; }
-hr { border-color: #2a2a35; }
-.stTextArea textarea { background: #16161e !important; border: 1px solid #2a2a35 !important; color: #e8e4dc !important; font-family: 'IBM Plex Mono', monospace; font-size: 13px; }
-.section-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #555; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 4px; }
-.badge { display: inline-block; padding: 2px 10px; border-radius: 20px; font-size: 11px; font-family: 'IBM Plex Mono', monospace; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
-.badge-pos { background: #1a3a2a; color: #4ade80; border: 1px solid #2d6b44; }
-.badge-neg { background: #3a1a1a; color: #f87171; border: 1px solid #6b2d2d; }
-.badge-neu { background: #2a2a1a; color: #facc15; border: 1px solid #5a4d10; }
-.alert-card { background: #1e0e0e; border: 1px solid #6b2d2d; border-left: 4px solid #f87171; border-radius: 8px; padding: 14px 18px; margin-bottom: 10px; }
-.alert-card .alert-title { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; color: #f87171; text-transform: uppercase; letter-spacing: 0.08em; }
-.alert-card .alert-body { font-size: 13px; color: #c8b8b8; margin-top: 4px; line-height: 1.5; }
-.alert-card .alert-action { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #fb923c; margin-top: 8px; padding-top: 8px; border-top: 1px solid #3a1a1a; }
-.action-card { background: #0e1a0e; border: 1px solid #2d6b44; border-left: 4px solid #4ade80; border-radius: 8px; padding: 14px 18px; margin-bottom: 10px; }
-.action-card .action-title { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; color: #4ade80; text-transform: uppercase; letter-spacing: 0.08em; }
-.action-card .action-body { font-size: 13px; color: #b8c8b8; margin-top: 4px; line-height: 1.5; }
-.pipeline-step { background: #16161e; border: 1px solid #2a2a35; border-radius: 8px; padding: 12px 16px; margin-bottom: 8px; display: flex; align-items: flex-start; gap: 12px; }
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+html, body, [class*="css"] {
+    font-family: 'Inter', sans-serif;
+    background-color: #f5f5f0;
+    color: #1a1a1a;
+}
+.stApp { background-color: #f5f5f0; }
+
+section[data-testid="stSidebar"] {
+    background: #ffffff;
+    border-right: 1px solid #e0e0d8;
+}
+
+[data-testid="metric-container"] {
+    background: #ffffff;
+    border: 1px solid #e0e0d8;
+    border-radius: 10px;
+    padding: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+[data-testid="metric-container"] label {
+    color: #888 !important;
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 11px !important;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+[data-testid="metric-container"] [data-testid="stMetricValue"] {
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 26px !important;
+    font-weight: 600 !important;
+    color: #1a1a1a !important;
+}
+
+h1, h2, h3 { font-family: 'Inter', sans-serif !important; letter-spacing: -0.02em; color: #1a1a1a; }
+
+.stSelectbox label { color: #666 !important; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; }
+
+.stTable table { background: #ffffff; border: 1px solid #e0e0d8; border-radius: 8px; }
+.stTable th {
+    background: #f0f0ea !important;
+    color: #666 !important;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-bottom: 1px solid #e0e0d8 !important;
+}
+.stTable td { color: #1a1a1a !important; font-size: 13px; border-color: #f0f0ea !important; }
+
+hr { border-color: #e0e0d8; }
+
+.stTextArea textarea {
+    background: #ffffff !important;
+    border: 1px solid #e0e0d8 !important;
+    color: #1a1a1a !important;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    border-radius: 8px;
+}
+
+.section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: #999;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.badge { display: inline-block; padding: 2px 10px; border-radius: 20px; font-size: 11px; font-family: 'JetBrains Mono', monospace; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+.badge-pos { background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+.badge-neg { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+.badge-neu { background: #fef9c3; color: #854d0e; border: 1px solid #fef08a; }
+
+.alert-card {
+    background: #fff8f8;
+    border: 1px solid #fecaca;
+    border-left: 4px solid #ef4444;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 10px;
+}
+.alert-card .alert-title { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; color: #dc2626; text-transform: uppercase; letter-spacing: 0.08em; }
+.alert-card .alert-body { font-size: 13px; color: #555; margin-top: 4px; line-height: 1.6; }
+.alert-card .alert-action { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #ea580c; margin-top: 8px; padding-top: 8px; border-top: 1px solid #fee2e2; }
+
+.action-card {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-left: 4px solid #22c55e;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 10px;
+}
+.action-card .action-title { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; color: #16a34a; text-transform: uppercase; letter-spacing: 0.08em; }
+.action-card .action-body { font-size: 13px; color: #555; margin-top: 4px; line-height: 1.6; }
+
+.pipeline-step {
+    background: #ffffff;
+    border: 1px solid #e0e0d8;
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
 .pipeline-icon { font-size: 20px; min-width: 28px; text-align: center; padding-top: 2px; }
-.pipeline-text .pipeline-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #555; text-transform: uppercase; letter-spacing: 0.12em; }
-.pipeline-text .pipeline-value { font-size: 13px; color: #e8e4dc; margin-top: 2px; }
-.hitl-banner { background: #16121e; border: 1px solid #4a2d6b; border-left: 4px solid #a78bfa; border-radius: 8px; padding: 12px 18px; margin-top: 12px; }
-.hitl-banner .hitl-title { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #a78bfa; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; }
-.hitl-banner .hitl-body { font-size: 12px; color: #c8b8d8; margin-top: 4px; line-height: 1.5; }
-.chip { display: inline-block; padding: 3px 10px; border-radius: 4px; font-size: 11px; font-family: 'IBM Plex Mono', monospace; margin: 2px 3px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
-.chip-hardware { background: #1a1e3a; color: #93c5fd; border: 1px solid #2d3d6b; }
-.chip-software { background: #1a2a1a; color: #86efac; border: 1px solid #2d5a2d; }
-.chip-support  { background: #2a1a1a; color: #fca5a5; border: 1px solid #6b2d2d; }
-.chip-battery  { background: #2a1e0a; color: #fdba74; border: 1px solid #6b4a1a; }
-.chip-build    { background: #1e1a2a; color: #c4b5fd; border: 1px solid #4a3a6b; }
+.pipeline-text .pipeline-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #999; text-transform: uppercase; letter-spacing: 0.12em; }
+.pipeline-text .pipeline-value { font-size: 13px; color: #1a1a1a; margin-top: 2px; }
+
+.hitl-banner {
+    background: #faf5ff;
+    border: 1px solid #e9d5ff;
+    border-left: 4px solid #a855f7;
+    border-radius: 10px;
+    padding: 12px 18px;
+    margin-top: 12px;
+}
+.hitl-banner .hitl-title { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #9333ea; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; }
+.hitl-banner .hitl-body { font-size: 12px; color: #666; margin-top: 4px; line-height: 1.6; }
+
+.chip { display: inline-block; padding: 3px 10px; border-radius: 4px; font-size: 11px; font-family: 'JetBrains Mono', monospace; margin: 2px 3px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+.chip-hardware { background: #dbeafe; color: #1e40af; border: 1px solid #bfdbfe; }
+.chip-software { background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+.chip-support  { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+.chip-battery  { background: #fff7ed; color: #9a3412; border: 1px solid #fed7aa; }
+.chip-build    { background: #f3e8ff; color: #6b21a8; border: 1px solid #e9d5ff; }
 </style>
 """, unsafe_allow_html=True)
 
 # ── Constants ──────────────────────────────────────────────
-COLORS  = {"Positive": "#4ade80", "Neutral": "#facc15", "Negative": "#f87171"}
-BG      = "#0d0d0f"
-SURFACE = "#16161e"
-BORDER  = "#2a2a35"
-TEXT    = "#e8e4dc"
-MUTED   = "#888888"
+COLORS  = {"Positive": "#22c55e", "Neutral": "#eab308", "Negative": "#ef4444"}
+BG      = "#f5f5f0"
+SURFACE = "#ffffff"
+BORDER  = "#e0e0d8"
+TEXT    = "#1a1a1a"
+MUTED   = "#999999"
 
 SHORT_NAMES = {
     "FusionTech 15.6-Inch Gaming Laptop (6th Gen Intel Quad-Core i5-6300HQ Processor up to 3.2GHz, 8GB DDR3, 256GB SSD, Nvidia GeForce GTX 960M, Windows 10)":
@@ -162,9 +254,9 @@ with st.sidebar:
 
     if pct_neg > 25 or avg_r < 3.5:
         st.markdown("""
-        <div style="background:#1e0e0e;border:1px solid #f87171;border-radius:6px;padding:10px 14px;margin:8px 0;">
-            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#f87171;font-weight:600;">⚠ ACTION REQUIRED</span><br>
-            <span style="font-size:12px;color:#c8b8b8;">High complaint rate detected</span>
+        <div style="background:#fff8f8;border:1px solid #ef4444;border-radius:8px;padding:10px 14px;margin:8px 0;">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#dc2626;font-weight:600;">⚠ ACTION REQUIRED</span><br>
+            <span style="font-size:12px;color:#555;">High complaint rate detected</span>
         </div>""", unsafe_allow_html=True)
 
     st.markdown("---")
@@ -174,20 +266,20 @@ with st.sidebar:
     st.metric("Negative",      f"{pct_neg:.0f}%")
     st.markdown("---")
     st.markdown('<p class="section-label">Powered by Dell PowerEdge</p>', unsafe_allow_html=True)
-    st.markdown('<p style="font-size:11px;color:#555;font-family:\'IBM Plex Mono\',monospace;">GPU-accelerated NLP<br>Real-time inference · &lt;1s latency</p>', unsafe_allow_html=True)
+    st.markdown('<p style="font-size:11px;color:#aaa;font-family:\'JetBrains Mono\',monospace;">GPU-accelerated NLP<br>Real-time inference · &lt;1s latency</p>', unsafe_allow_html=True)
 
 # ── Header ─────────────────────────────────────────────────
 st.markdown(f"""
 <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:4px;">
   <div>
-    <h1 style="font-size:1.9rem;margin:0;font-weight:700;color:#f5f0e8;">Customer Feedback Intelligence</h1>
-    <p style="color:{MUTED};font-family:'IBM Plex Mono',monospace;font-size:11px;margin-top:4px;">
+    <h1 style="font-size:1.9rem;margin:0;font-weight:700;color:#1a1a1a;">Customer Feedback Intelligence</h1>
+    <p style="color:{MUTED};font-family:'JetBrains Mono',monospace;font-size:11px;margin-top:4px;">
         Challenge 1: Eliminate Feedback Blind Spots · Top 5 products by review volume
     </p>
   </div>
   <div style="text-align:right;">
-    <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#555;">AI PIPELINE</span><br>
-    <span style="font-size:12px;color:#a78bfa;">Sentiment Analysis + Topic Classification</span>
+    <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#bbb;">AI PIPELINE</span><br>
+    <span style="font-size:12px;color:#9333ea;">Sentiment Analysis + Topic Classification</span>
   </div>
 </div>
 """, unsafe_allow_html=True)
@@ -197,57 +289,52 @@ st.markdown("---")
 col_left, col_right = st.columns([3, 2], gap="large")
 
 with col_left:
-    with col_left:
-        st.markdown('<p class="section-label">Sentiment overview — all 5 products (% of reviews)</p>', unsafe_allow_html=True)
-        overview = []
-        for short in short_names:
-            sub = df[df["short_name"] == short]
-            total_sub = len(sub)
-            overview.append({
-                "Product": short,
-                "Positive": (sub["sentiment"] == "Positive").sum() / total_sub * 100,
-                "Neutral":  (sub["sentiment"] == "Neutral").sum()  / total_sub * 100,
-                "Negative": (sub["sentiment"] == "Negative").sum() / total_sub * 100,
-                "pct_neg":  (sub["sentiment"] == "Negative").mean() * 100,
-                "n":        total_sub,
-            })
-        ov_df = pd.DataFrame(overview).set_index("Product")
+    st.markdown('<p class="section-label">Sentiment overview — all 5 products (% of reviews)</p>', unsafe_allow_html=True)
+    overview = []
+    for short in short_names:
+        sub = df[df["short_name"] == short]
+        total_sub = len(sub)
+        overview.append({
+            "Product": short,
+            "Positive": (sub["sentiment"] == "Positive").sum() / total_sub * 100,
+            "Neutral":  (sub["sentiment"] == "Neutral").sum()  / total_sub * 100,
+            "Negative": (sub["sentiment"] == "Negative").sum() / total_sub * 100,
+            "pct_neg":  (sub["sentiment"] == "Negative").mean() * 100,
+            "n":        total_sub,
+        })
+    ov_df = pd.DataFrame(overview).set_index("Product")
 
-        fig, ax = plt.subplots(figsize=(7, 3.4))
-        fig.patch.set_facecolor(SURFACE); ax.set_facecolor(SURFACE)
-        x = range(len(ov_df))
-        w = 0.55  # wider bars since they're stacked now
+    fig, ax = plt.subplots(figsize=(7, 3.4))
+    fig.patch.set_facecolor(SURFACE); ax.set_facecolor(SURFACE)
+    x = range(len(ov_df))
+    w = 0.55
 
-        # Draw stacked bars
-        bars_pos = ax.bar(x, ov_df["Positive"], width=w, color="#4ade80", label="Positive", zorder=3)
-        bars_neu = ax.bar(x, ov_df["Neutral"],  width=w, color="#facc15", label="Neutral",
-                      bottom=ov_df["Positive"], zorder=3)
-        bars_neg = ax.bar(x, ov_df["Negative"], width=w, color="#f87171", label="Negative",
-                      bottom=ov_df["Positive"] + ov_df["Neutral"], zorder=3)
+    bars_pos = ax.bar(x, ov_df["Positive"], width=w, color="#22c55e", label="Positive", zorder=3)
+    bars_neu = ax.bar(x, ov_df["Neutral"],  width=w, color="#eab308", label="Neutral",
+                  bottom=ov_df["Positive"], zorder=3)
+    bars_neg = ax.bar(x, ov_df["Negative"], width=w, color="#ef4444", label="Negative",
+                  bottom=ov_df["Positive"] + ov_df["Neutral"], zorder=3)
 
-        # Label the negative % on top of each bar + review count below x-axis
-        for idx, (short, row) in enumerate(ov_df.iterrows()):
-            # Warn flag if high negative rate
-            if row["pct_neg"] > 30:
-                ax.annotate("⚠", xy=(idx, 100), xytext=(0, 4),
-                        textcoords="offset points", ha="center", fontsize=10, color="#f87171")
-            # Show n= under each product label
-            ax.text(idx, -7, f"n={row['n']:,}", ha="center", va="top",
-                fontsize=8, color=MUTED, fontfamily="monospace")
+    for idx, (short, row) in enumerate(ov_df.iterrows()):
+        if row["pct_neg"] > 30:
+            ax.annotate("⚠", xy=(idx, 100), xytext=(0, 4),
+                    textcoords="offset points", ha="center", fontsize=10, color="#ef4444")
+        ax.text(idx, -7, f"n={row['n']:,}", ha="center", va="top",
+            fontsize=8, color=MUTED, fontfamily="monospace")
 
-        ax.set_xticks(list(x))
-        ax.set_xticklabels([s.split(" — ")[0] for s in ov_df.index], color=TEXT, fontsize=9, fontfamily="monospace")
-        ax.set_ylim(0, 110)
-        ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda val, _: f"{int(val)}%"))
-        ax.tick_params(axis="y", colors=MUTED, labelsize=9)
-        ax.spines[:].set_visible(False)
-        ax.yaxis.grid(True, color=BORDER, linewidth=0.5, zorder=0)
-        ax.set_axisbelow(True)
-        ax.legend(frameon=False, labelcolor=MUTED, prop={"family": "monospace", "size": 9},
-              ncol=3, loc="upper right")
-        plt.tight_layout(pad=0.5)
-        st.pyplot(fig)
-        plt.close()
+    ax.set_xticks(list(x))
+    ax.set_xticklabels([s.split(" — ")[0] for s in ov_df.index], color=TEXT, fontsize=9, fontfamily="monospace")
+    ax.set_ylim(0, 110)
+    ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda val, _: f"{int(val)}%"))
+    ax.tick_params(axis="y", colors=MUTED, labelsize=9)
+    ax.spines[:].set_visible(False)
+    ax.yaxis.grid(True, color=BORDER, linewidth=0.5, zorder=0)
+    ax.set_axisbelow(True)
+    ax.legend(frameon=False, labelcolor=MUTED, prop={"family": "monospace", "size": 9},
+          ncol=3, loc="upper right")
+    plt.tight_layout(pad=0.5)
+    st.pyplot(fig)
+    plt.close()
 
 with col_right:
     st.markdown('<p class="section-label">Sentiment split — selected product</p>', unsafe_allow_html=True)
@@ -259,7 +346,7 @@ with col_right:
         autopct="%1.0f%%", startangle=90, pctdistance=0.72,
         wedgeprops=dict(width=0.55, edgecolor=BG, linewidth=2))
     for t in autotexts:
-        t.set_color(BG); t.set_fontsize(11); t.set_fontweight("bold"); t.set_fontfamily("monospace")
+        t.set_color("#fff"); t.set_fontsize(11); t.set_fontweight("bold"); t.set_fontfamily("monospace")
     ax2.legend(handles=[mpatches.Patch(color=COLORS[l], label=l) for l in labels],
         frameon=False, labelcolor=MUTED, loc="lower center",
         prop={"family": "monospace", "size": 9}, ncol=3, bbox_to_anchor=(0.5, -0.08))
@@ -282,7 +369,7 @@ with col_topic:
 
         fig_t, ax_t = plt.subplots(figsize=(5, 3.2))
         fig_t.patch.set_facecolor(SURFACE); ax_t.set_facecolor(SURFACE)
-        palette = ["#f87171","#fb923c","#facc15","#a78bfa","#93c5fd","#86efac"]
+        palette = ["#ef4444","#f97316","#eab308","#a855f7","#3b82f6","#22c55e"]
         bars = ax_t.barh(topic_counts["Topic"], topic_counts["Count"],
                          color=palette[:len(topic_counts)], height=0.55, zorder=3)
         for bar, share in zip(bars, topic_counts["Share"]):
@@ -341,7 +428,7 @@ with col_wc:
 with col_rating:
     st.markdown('<p class="section-label">Rating distribution</p>', unsafe_allow_html=True)
     rating_counts = product_df["rating"].value_counts().sort_index()
-    star_colors = {1:"#f87171",2:"#fb923c",3:"#facc15",4:"#a3e635",5:"#4ade80"}
+    star_colors = {1:"#ef4444",2:"#f97316",3:"#eab308",4:"#84cc16",5:"#22c55e"}
     fig4, ax4 = plt.subplots(figsize=(4.5, 2.8))
     fig4.patch.set_facecolor(SURFACE); ax4.set_facecolor(SURFACE)
     for star, count in rating_counts.items():
@@ -413,7 +500,7 @@ with col_demo:
                 <div class="pipeline-value">{topic_chip}</div>
             </div>
         </div>
-        {'<div class="pipeline-step"><div class="pipeline-icon">📋</div><div class="pipeline-text"><div class="pipeline-label">Step 3 — Recommended Action</div><div class="pipeline-value" style="color:#fb923c;">' + action_text + '</div></div></div>' if action_text and sentiment == "Negative" else ""}
+        {'<div class="pipeline-step"><div class="pipeline-icon">📋</div><div class="pipeline-text"><div class="pipeline-label">Step 3 — Recommended Action</div><div class="pipeline-value" style="color:#ea580c;">' + action_text + '</div></div></div>' if action_text and sentiment == "Negative" else ""}
         """, unsafe_allow_html=True)
 
         st.markdown("""
