@@ -13,143 +13,192 @@ st.markdown("""
 
 html, body, [class*="css"] {
     font-family: 'Inter', sans-serif;
-    background-color: #f5f5f0;
-    color: #1a1a1a;
+    background-color: #f0f2f5;
+    color: #111827;
 }
-.stApp { background-color: #f5f5f0; }
+.stApp { background-color: #f0f2f5; }
 
+/* ── Sidebar ── */
 section[data-testid="stSidebar"] {
-    background: #eeeee8;
-    border-right: 2px solid #c8c8be;
+    background: linear-gradient(160deg, #1e293b 0%, #0f172a 100%);
+    border-right: none;
 }
-
-[data-testid="metric-container"] {
-    background: #ffffff;
-    border: 1px solid #e0e0d8;
+section[data-testid="stSidebar"] * { color: #e2e8f0 !important; }
+section[data-testid="stSidebar"] h2 { color: #ffffff !important; font-size: 1.1rem !important; }
+section[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,0.12) !important; }
+section[data-testid="stSidebar"] .stSelectbox label { color: #94a3b8 !important; }
+section[data-testid="stSidebar"] [data-testid="metric-container"] {
+    background: rgba(255,255,255,0.07) !important;
+    border: 1px solid rgba(255,255,255,0.12) !important;
     border-radius: 10px;
-    padding: 16px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    padding: 12px 16px;
 }
-[data-testid="metric-container"] label {
-    color: #888 !important;
-    font-family: 'JetBrains Mono', monospace !important;
+section[data-testid="stSidebar"] [data-testid="metric-container"] label {
+    color: #94a3b8 !important;
+    font-family: 'Inter', sans-serif !important;
     font-size: 11px !important;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.06em;
+}
+section[data-testid="stSidebar"] [data-testid="metric-container"] [data-testid="stMetricValue"] {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+}
+
+/* ── Main metric cards ── */
+[data-testid="metric-container"] {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+[data-testid="metric-container"] label {
+    color: #6b7280 !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 11px !important;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 500;
 }
 [data-testid="metric-container"] [data-testid="stMetricValue"] {
-    font-family: 'JetBrains Mono', monospace !important;
+    font-family: 'Inter', sans-serif !important;
     font-size: 26px !important;
-    font-weight: 600 !important;
-    color: #1a1a1a !important;
+    font-weight: 700 !important;
+    color: #111827 !important;
 }
 
-h1, h2, h3 { font-family: 'Inter', sans-serif !important; letter-spacing: -0.02em; color: #1a1a1a; }
+h1, h2, h3 { font-family: 'Inter', sans-serif !important; letter-spacing: -0.02em; color: #111827; }
 
-.stSelectbox label { color: #666 !important; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; }
+.stSelectbox label { color: #6b7280 !important; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; }
 
-.stTable table { background: #ffffff; border: 1px solid #e0e0d8; border-radius: 8px; }
+.stTable table { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 10px; overflow: hidden; }
 .stTable th {
-    background: #f0f0ea !important;
-    color: #666 !important;
-    font-family: 'JetBrains Mono', monospace;
+    background: #f9fafb !important;
+    color: #6b7280 !important;
+    font-family: 'Inter', sans-serif;
     font-size: 11px;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    border-bottom: 1px solid #e0e0d8 !important;
+    letter-spacing: 0.06em;
+    border-bottom: 1px solid #e5e7eb !important;
 }
-.stTable td { color: #1a1a1a !important; font-size: 13px; border-color: #f0f0ea !important; }
+.stTable td { color: #111827 !important; font-size: 13px; border-color: #f3f4f6 !important; }
 
-hr { border-color: #e0e0d8; }
+hr { border-color: #e5e7eb; }
 
 .stTextArea textarea {
     background: #ffffff !important;
-    border: 1px solid #e0e0d8 !important;
-    color: #1a1a1a !important;
+    border: 1px solid #d1d5db !important;
+    color: #111827 !important;
     font-family: 'JetBrains Mono', monospace;
     font-size: 13px;
-    border-radius: 8px;
+    border-radius: 10px;
 }
 
+/* ── Section labels ── */
 .section-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    color: #555;
-    letter-spacing: 0.15em;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: #6b7280;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    margin-bottom: 4px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.section-label::before {
+    content: '';
+    display: inline-block;
+    width: 3px;
+    height: 14px;
+    background: #6366f1;
+    border-radius: 2px;
+    flex-shrink: 0;
 }
 
-.badge { display: inline-block; padding: 2px 10px; border-radius: 20px; font-size: 11px; font-family: 'JetBrains Mono', monospace; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
-.badge-pos { background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
-.badge-neg { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
-.badge-neu { background: #fef9c3; color: #854d0e; border: 1px solid #fef08a; }
+/* ── Badges ── */
+.badge { display: inline-block; padding: 3px 12px; border-radius: 20px; font-size: 12px; font-family: 'Inter', sans-serif; font-weight: 600; letter-spacing: 0.03em; }
+.badge-pos { background: #dcfce7; color: #15803d; }
+.badge-neg { background: #fee2e2; color: #b91c1c; }
+.badge-neu { background: #fef9c3; color: #a16207; }
 
+/* ── Alert / action cards ── */
 .alert-card {
-    background: #fff8f8;
+    background: #ffffff;
     border: 1px solid #fecaca;
     border-left: 4px solid #ef4444;
-    border-radius: 10px;
-    padding: 14px 18px;
+    border-radius: 12px;
+    padding: 16px 20px;
     margin-bottom: 10px;
+    box-shadow: 0 1px 4px rgba(239,68,68,0.08);
 }
-.alert-card .alert-title { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; color: #dc2626; text-transform: uppercase; letter-spacing: 0.08em; }
-.alert-card .alert-body { font-size: 13px; color: #555; margin-top: 4px; line-height: 1.6; }
-.alert-card .alert-action { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #ea580c; margin-top: 8px; padding-top: 8px; border-top: 1px solid #fee2e2; }
+.alert-card .alert-title { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; color: #dc2626; }
+.alert-card .alert-body { font-size: 13px; color: #374151; margin-top: 6px; line-height: 1.6; }
+.alert-card .alert-action { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #ea580c; margin-top: 10px; padding-top: 10px; border-top: 1px solid #fee2e2; }
 
 .action-card {
-    background: #f0fdf4;
+    background: #ffffff;
     border: 1px solid #bbf7d0;
     border-left: 4px solid #22c55e;
-    border-radius: 10px;
-    padding: 14px 18px;
+    border-radius: 12px;
+    padding: 16px 20px;
     margin-bottom: 10px;
+    box-shadow: 0 1px 4px rgba(34,197,94,0.08);
 }
-.action-card .action-title { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; color: #16a34a; text-transform: uppercase; letter-spacing: 0.08em; }
-.action-card .action-body { font-size: 13px; color: #555; margin-top: 4px; line-height: 1.6; }
+.action-card .action-title { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; color: #16a34a; }
+.action-card .action-body { font-size: 13px; color: #374151; margin-top: 6px; line-height: 1.6; }
 
+/* ── Pipeline steps ── */
 .pipeline-step {
     background: #ffffff;
-    border: 1px solid #e0e0d8;
-    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
     padding: 12px 16px;
     margin-bottom: 8px;
     display: flex;
     align-items: flex-start;
     gap: 12px;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    transition: box-shadow 0.2s;
 }
 .pipeline-icon { font-size: 20px; min-width: 28px; text-align: center; padding-top: 2px; }
-.pipeline-text .pipeline-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #999; text-transform: uppercase; letter-spacing: 0.12em; }
-.pipeline-text .pipeline-value { font-size: 13px; color: #1a1a1a; margin-top: 2px; }
+.pipeline-text .pipeline-label { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.08em; }
+.pipeline-text .pipeline-value { font-size: 13px; color: #111827; margin-top: 2px; line-height: 1.5; }
 
+/* ── HITL banner ── */
 .hitl-banner {
     background: #faf5ff;
     border: 1px solid #e9d5ff;
     border-left: 4px solid #a855f7;
-    border-radius: 10px;
-    padding: 12px 18px;
+    border-radius: 12px;
+    padding: 14px 18px;
     margin-top: 12px;
 }
-.hitl-banner .hitl-title { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #9333ea; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; }
-.hitl-banner .hitl-body { font-size: 12px; color: #666; margin-top: 4px; line-height: 1.6; }
+.hitl-banner .hitl-title { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; color: #9333ea; text-transform: uppercase; letter-spacing: 0.06em; }
+.hitl-banner .hitl-body { font-size: 12px; color: #4b5563; margin-top: 5px; line-height: 1.6; }
 
-.chip { display: inline-block; padding: 3px 10px; border-radius: 4px; font-size: 11px; font-family: 'JetBrains Mono', monospace; margin: 2px 3px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
-.chip-hardware { background: #dbeafe; color: #1e40af; border: 1px solid #bfdbfe; }
-.chip-software { background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
-.chip-support  { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
-.chip-battery  { background: #fff7ed; color: #9a3412; border: 1px solid #fed7aa; }
-.chip-build    { background: #f3e8ff; color: #6b21a8; border: 1px solid #e9d5ff; }
+/* ── Chips ── */
+.chip { display: inline-block; padding: 4px 11px; border-radius: 6px; font-size: 11px; font-family: 'Inter', sans-serif; margin: 2px 3px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
+.chip-hardware { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+.chip-software { background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; }
+.chip-support  { background: #fff1f2; color: #be123c; border: 1px solid #fecdd3; }
+.chip-battery  { background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; }
+.chip-build    { background: #faf5ff; color: #7e22ce; border: 1px solid #e9d5ff; }
 </style>
 """, unsafe_allow_html=True)
 
 # ── Constants ──────────────────────────────────────────────
 COLORS  = {"Positive": "#22c55e", "Neutral": "#eab308", "Negative": "#ef4444"}
-BG      = "#f5f5f0"
+BG      = "#f0f2f5"
 SURFACE = "#ffffff"
-BORDER  = "#e0e0d8"
-TEXT    = "#1a1a1a"
-MUTED   = "#999999"
+BORDER  = "#e5e7eb"
+TEXT    = "#111827"
+MUTED   = "#9ca3af"
 
 SHORT_NAMES = {
     "FusionTech 15.6-Inch Gaming Laptop (6th Gen Intel Quad-Core i5-6300HQ Processor up to 3.2GHz, 8GB DDR3, 256GB SSD, Nvidia GeForce GTX 960M, Windows 10)":
