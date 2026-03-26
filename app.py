@@ -19,8 +19,8 @@ html, body, [class*="css"] {
 .stApp { background-color: #f5f5f0; }
 
 section[data-testid="stSidebar"] {
-    background: #ffffff;
-    border-right: 1px solid #e0e0d8;
+    background: #eeeee8;
+    border-right: 2px solid #c8c8be;
 }
 
 [data-testid="metric-container"] {
@@ -74,7 +74,7 @@ hr { border-color: #e0e0d8; }
 .section-label {
     font-family: 'JetBrains Mono', monospace;
     font-size: 10px;
-    color: #999;
+    color: #555;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     margin-bottom: 4px;
@@ -266,7 +266,7 @@ with st.sidebar:
     st.metric("Negative",      f"{pct_neg:.0f}%")
     st.markdown("---")
     st.markdown('<p class="section-label">Powered by Dell PowerEdge</p>', unsafe_allow_html=True)
-    st.markdown('<p style="font-size:11px;color:#aaa;font-family:\'JetBrains Mono\',monospace;">GPU-accelerated NLP<br>Real-time inference · &lt;1s latency</p>', unsafe_allow_html=True)
+    st.markdown('<p style="font-size:11px;color:#666;font-family:\'JetBrains Mono\',monospace;">GPU-accelerated NLP<br>Real-time inference · &lt;1s latency</p>', unsafe_allow_html=True)
 
 # ── Header ─────────────────────────────────────────────────
 st.markdown(f"""
