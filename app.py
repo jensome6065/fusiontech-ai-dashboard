@@ -13,28 +13,32 @@ st.markdown("""
 
 html, body, [class*="css"] {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    background-color: #f1f0f9;
-    color: #1e1b4b;
+    background-color: #0d0d0f;
+    color: #f9e8ef;
 }
-.stApp { background-color: #f1f0f9; }
+.stApp {
+    background: radial-gradient(ellipse at 70% 10%, rgba(220,60,100,0.18) 0%, transparent 55%),
+                radial-gradient(ellipse at 10% 80%, rgba(180,40,80,0.13) 0%, transparent 50%),
+                #0d0d0f;
+}
 
 /* ── Sidebar ── */
 section[data-testid="stSidebar"] {
-    background: linear-gradient(160deg, #312e81 0%, #1e1b4b 100%);
-    border-right: none;
+    background: linear-gradient(160deg, #1a0d12 0%, #0d0d0f 100%);
+    border-right: 1px solid rgba(236,100,140,0.15) !important;
 }
-section[data-testid="stSidebar"] * { color: #e0e7ff !important; }
-section[data-testid="stSidebar"] h2 { color: #ffffff !important; font-size: 1.1rem !important; }
-section[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,0.12) !important; }
-section[data-testid="stSidebar"] .stSelectbox label { color: #a5b4fc !important; }
+section[data-testid="stSidebar"] * { color: #f9e8ef !important; }
+section[data-testid="stSidebar"] h2 { color: #ff8fab !important; font-size: 1.1rem !important; }
+section[data-testid="stSidebar"] hr { border-color: rgba(236,100,140,0.2) !important; }
+section[data-testid="stSidebar"] .stSelectbox label { color: #f48fb1 !important; }
 section[data-testid="stSidebar"] [data-testid="metric-container"] {
-    background: rgba(255,255,255,0.08) !important;
-    border: 1px solid rgba(165,180,252,0.25) !important;
+    background: rgba(236,100,140,0.08) !important;
+    border: 1px solid rgba(236,100,140,0.25) !important;
     border-radius: 10px;
     padding: 12px 16px;
 }
 section[data-testid="stSidebar"] [data-testid="metric-container"] label {
-    color: #a5b4fc !important;
+    color: #f48fb1 !important;
     font-family: 'Plus Jakarta Sans', sans-serif !important;
     font-size: 11px !important;
     text-transform: uppercase;
@@ -44,19 +48,19 @@ section[data-testid="stSidebar"] [data-testid="metric-container"] [data-testid="
     font-family: 'Plus Jakarta Sans', sans-serif !important;
     font-size: 24px !important;
     font-weight: 800 !important;
-    color: #ffffff !important;
+    color: #ff8fab !important;
 }
 
 /* ── Main metric cards ── */
 [data-testid="metric-container"] {
-    background: #ffffff;
-    border: 1px solid #e0e7ff;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(236,100,140,0.25);
     border-radius: 14px;
     padding: 16px;
-    box-shadow: 0 2px 8px rgba(99,102,241,0.07);
+    box-shadow: 0 2px 20px rgba(220,60,100,0.1);
 }
 [data-testid="metric-container"] label {
-    color: #6366f1 !important;
+    color: #f48fb1 !important;
     font-family: 'Plus Jakarta Sans', sans-serif !important;
     font-size: 11px !important;
     text-transform: uppercase;
@@ -67,36 +71,36 @@ section[data-testid="stSidebar"] [data-testid="metric-container"] [data-testid="
     font-family: 'Plus Jakarta Sans', sans-serif !important;
     font-size: 26px !important;
     font-weight: 800 !important;
-    color: #1e1b4b !important;
+    color: #ff8fab !important;
 }
 
 h1, h2, h3 {
     font-family: 'Plus Jakarta Sans', sans-serif !important;
     letter-spacing: -0.025em;
-    color: #1e1b4b;
+    color: #ffffff;
 }
 
-.stSelectbox label { color: #6366f1 !important; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+.stSelectbox label { color: #f48fb1 !important; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
 
-.stTable table { background: #ffffff; border: 1px solid #e0e7ff; border-radius: 12px; overflow: hidden; }
+.stTable table { background: rgba(255,255,255,0.03); border: 1px solid rgba(236,100,140,0.2); border-radius: 12px; overflow: hidden; }
 .stTable th {
-    background: #eef2ff !important;
-    color: #4338ca !important;
+    background: rgba(236,100,140,0.1) !important;
+    color: #f48fb1 !important;
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    border-bottom: 1px solid #e0e7ff !important;
+    border-bottom: 1px solid rgba(236,100,140,0.2) !important;
 }
-.stTable td { color: #1e1b4b !important; font-size: 13px; border-color: #f5f3ff !important; }
+.stTable td { color: #f9e8ef !important; font-size: 13px; border-color: rgba(236,100,140,0.08) !important; }
 
-hr { border-color: #e0e7ff; }
+hr { border-color: rgba(236,100,140,0.15); }
 
 .stTextArea textarea {
-    background: #ffffff !important;
-    border: 1px solid #c7d2fe !important;
-    color: #1e1b4b !important;
+    background: rgba(255,255,255,0.04) !important;
+    border: 1px solid rgba(236,100,140,0.3) !important;
+    color: #f9e8ef !important;
     font-family: 'JetBrains Mono', monospace;
     font-size: 13px;
     border-radius: 10px;
@@ -107,8 +111,8 @@ hr { border-color: #e0e7ff; }
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 11px;
     font-weight: 700;
-    color: #4338ca;
-    letter-spacing: 0.06em;
+    color: #f48fb1;
+    letter-spacing: 0.07em;
     text-transform: uppercase;
     margin-bottom: 8px;
     display: flex;
@@ -120,88 +124,90 @@ hr { border-color: #e0e7ff; }
     display: inline-block;
     width: 3px;
     height: 14px;
-    background: linear-gradient(180deg, #818cf8, #6366f1);
+    background: linear-gradient(180deg, #ff8fab, #e91e63);
     border-radius: 2px;
     flex-shrink: 0;
 }
 
 /* ── Badges ── */
 .badge { display: inline-block; padding: 3px 12px; border-radius: 20px; font-size: 12px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; letter-spacing: 0.03em; }
-.badge-pos { background: #d1fae5; color: #065f46; }
-.badge-neg { background: #ffe4e6; color: #9f1239; }
-.badge-neu { background: #fef3c7; color: #92400e; }
+.badge-pos { background: rgba(16,185,129,0.18); color: #6ee7b7; border: 1px solid rgba(16,185,129,0.3); }
+.badge-neg { background: rgba(244,63,94,0.18); color: #fda4af; border: 1px solid rgba(244,63,94,0.3); }
+.badge-neu { background: rgba(245,158,11,0.15); color: #fcd34d; border: 1px solid rgba(245,158,11,0.25); }
 
 /* ── Alert / action cards ── */
 .alert-card {
-    background: #ffffff;
-    border: 1px solid #fecdd3;
+    background: rgba(244,63,94,0.07);
+    border: 1px solid rgba(244,63,94,0.3);
     border-left: 4px solid #f43f5e;
     border-radius: 14px;
     padding: 16px 20px;
     margin-bottom: 10px;
-    box-shadow: 0 2px 8px rgba(244,63,94,0.07);
+    box-shadow: 0 4px 20px rgba(244,63,94,0.1);
 }
-.alert-card .alert-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; font-weight: 800; color: #be123c; }
-.alert-card .alert-body { font-size: 13px; color: #374151; margin-top: 6px; line-height: 1.6; }
-.alert-card .alert-action { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #ea580c; margin-top: 10px; padding-top: 10px; border-top: 1px solid #ffe4e6; }
+.alert-card .alert-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; font-weight: 800; color: #ff8fab; }
+.alert-card .alert-body { font-size: 13px; color: #f9e8ef; margin-top: 6px; line-height: 1.6; opacity: 0.85; }
+.alert-card .alert-action { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #f48fb1; margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(244,63,94,0.2); }
 
 .action-card {
-    background: #ffffff;
-    border: 1px solid #a7f3d0;
+    background: rgba(16,185,129,0.07);
+    border: 1px solid rgba(16,185,129,0.25);
     border-left: 4px solid #10b981;
     border-radius: 14px;
     padding: 16px 20px;
     margin-bottom: 10px;
-    box-shadow: 0 2px 8px rgba(16,185,129,0.07);
+    box-shadow: 0 4px 20px rgba(16,185,129,0.08);
 }
-.action-card .action-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; font-weight: 800; color: #065f46; }
-.action-card .action-body { font-size: 13px; color: #374151; margin-top: 6px; line-height: 1.6; }
+.action-card .action-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; font-weight: 800; color: #6ee7b7; }
+.action-card .action-body { font-size: 13px; color: #f9e8ef; margin-top: 6px; line-height: 1.6; opacity: 0.85; }
 
 /* ── Pipeline steps ── */
 .pipeline-step {
-    background: #ffffff;
-    border: 1px solid #e0e7ff;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(236,100,140,0.18);
     border-radius: 12px;
     padding: 12px 16px;
     margin-bottom: 8px;
     display: flex;
     align-items: flex-start;
     gap: 12px;
-    box-shadow: 0 1px 4px rgba(99,102,241,0.06);
+    box-shadow: 0 1px 8px rgba(220,60,100,0.07);
 }
 .pipeline-icon { font-size: 20px; min-width: 28px; text-align: center; padding-top: 2px; }
-.pipeline-text .pipeline-label { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 10px; font-weight: 700; color: #6366f1; text-transform: uppercase; letter-spacing: 0.08em; }
-.pipeline-text .pipeline-value { font-size: 13px; color: #1e1b4b; margin-top: 2px; line-height: 1.5; }
+.pipeline-text .pipeline-label { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 10px; font-weight: 700; color: #f48fb1; text-transform: uppercase; letter-spacing: 0.08em; }
+.pipeline-text .pipeline-value { font-size: 13px; color: #f9e8ef; margin-top: 2px; line-height: 1.5; opacity: 0.9; }
 
 /* ── HITL banner ── */
 .hitl-banner {
-    background: #faf5ff;
-    border: 1px solid #ddd6fe;
-    border-left: 4px solid #8b5cf6;
+    background: rgba(168,85,247,0.08);
+    border: 1px solid rgba(168,85,247,0.25);
+    border-left: 4px solid #a855f7;
     border-radius: 12px;
     padding: 14px 18px;
     margin-top: 12px;
 }
-.hitl-banner .hitl-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; font-weight: 800; color: #7c3aed; text-transform: uppercase; letter-spacing: 0.06em; }
-.hitl-banner .hitl-body { font-size: 12px; color: #4b5563; margin-top: 5px; line-height: 1.6; }
+.hitl-banner .hitl-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; font-weight: 800; color: #d8b4fe; text-transform: uppercase; letter-spacing: 0.06em; }
+.hitl-banner .hitl-body { font-size: 12px; color: #f9e8ef; margin-top: 5px; line-height: 1.6; opacity: 0.8; }
 
 /* ── Chips ── */
 .chip { display: inline-block; padding: 4px 11px; border-radius: 6px; font-size: 11px; font-family: 'Plus Jakarta Sans', sans-serif; margin: 2px 3px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
-.chip-hardware { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
-.chip-software { background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; }
-.chip-support  { background: #fff1f2; color: #be123c; border: 1px solid #fecdd3; }
-.chip-battery  { background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; }
-.chip-build    { background: #faf5ff; color: #7e22ce; border: 1px solid #ddd6fe; }
+.chip-hardware { background: rgba(59,130,246,0.15); color: #93c5fd; border: 1px solid rgba(59,130,246,0.3); }
+.chip-software { background: rgba(16,185,129,0.12); color: #6ee7b7; border: 1px solid rgba(16,185,129,0.25); }
+.chip-support  { background: rgba(244,63,94,0.15); color: #fda4af; border: 1px solid rgba(244,63,94,0.3); }
+.chip-battery  { background: rgba(249,115,22,0.12); color: #fdba74; border: 1px solid rgba(249,115,22,0.25); }
+.chip-build    { background: rgba(168,85,247,0.12); color: #d8b4fe; border: 1px solid rgba(168,85,247,0.25); }
 </style>
 """, unsafe_allow_html=True)
 
 # ── Constants ──────────────────────────────────────────────
 COLORS  = {"Positive": "#10b981", "Neutral": "#f59e0b", "Negative": "#f43f5e"}
-BG      = "#f1f0f9"
-SURFACE = "#ffffff"
-BORDER  = "#e0e7ff"
-TEXT    = "#1e1b4b"
-MUTED   = "#818cf8"
+BG      = "#0d0d0f"
+SURFACE = "#130a0e"
+BORDER  = "#3d1a25"
+TEXT    = "#f9e8ef"
+MUTED   = "#f48fb1"
+PINK    = "#ec648c"
+PINK_LT = "#ffb3c6"
 
 SHORT_NAMES = {
     "FusionTech 15.6-Inch Gaming Laptop (6th Gen Intel Quad-Core i5-6300HQ Processor up to 3.2GHz, 8GB DDR3, 256GB SSD, Nvidia GeForce GTX 960M, Windows 10)":
@@ -306,8 +312,8 @@ with st.sidebar:
 
     if pct_neg > 25 or avg_r < 3.5:
         st.markdown("""
-        <div style="background:rgba(244,63,94,0.12);border:1px solid #f43f5e;border-radius:8px;padding:10px 14px;margin:8px 0;">
-            <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#fb7185;font-weight:600;">⚠ ACTION REQUIRED</span><br>
+        <div style="background:rgba(244,63,94,0.1);border:1px solid rgba(244,63,94,0.4);border-radius:8px;padding:10px 14px;margin:8px 0;">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#ff8fab;font-weight:600;">⚠ ACTION REQUIRED</span><br>
             <span style="font-size:12px;color:#fda4af;">High complaint rate detected</span>
         </div>""", unsafe_allow_html=True)
 
@@ -318,20 +324,20 @@ with st.sidebar:
     st.metric("Negative",      f"{pct_neg:.0f}%")
     st.markdown("---")
     st.markdown('<p class="section-label">Powered by Dell PowerEdge</p>', unsafe_allow_html=True)
-    st.markdown('<p style="font-size:11px;color:#a5b4fc;font-family:\'JetBrains Mono\',monospace;">GPU-accelerated NLP<br>Real-time inference · &lt;1s latency</p>', unsafe_allow_html=True)
+    st.markdown('<p style="font-size:11px;color:#f48fb1;font-family:\'JetBrains Mono\',monospace;">GPU-accelerated NLP<br>Real-time inference · &lt;1s latency</p>', unsafe_allow_html=True)
 
 # ── Header ─────────────────────────────────────────────────
 st.markdown(f"""
 <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:4px;">
   <div>
-    <h1 style="font-size:2.1rem;margin:0;font-weight:800;color:#1e1b4b;font-family:'Plus Jakarta Sans',sans-serif;">Customer Feedback Intelligence</h1>
-    <p style="color:#4338ca;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:600;margin-top:6px;letter-spacing:-0.01em;">
+    <h1 style="font-size:2.1rem;margin:0;font-weight:800;color:#ffffff;font-family:'Plus Jakarta Sans',sans-serif;">Customer Feedback Intelligence</h1>
+    <p style="color:#f48fb1;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:600;margin-top:6px;letter-spacing:-0.01em;">
         Challenge 1: Eliminate Feedback Blind Spots &middot; Top 5 products by review volume
     </p>
   </div>
   <div style="text-align:right;">
-    <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#a5b4fc;">AI PIPELINE</span><br>
-    <span style="font-size:12px;color:#8b5cf6;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;">Sentiment Analysis + Topic Classification</span>
+    <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#f48fb1;">AI PIPELINE</span><br>
+    <span style="font-size:12px;color:#ffb3c6;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;">Sentiment Analysis + Topic Classification</span>
   </div>
 </div>
 """, unsafe_allow_html=True)
@@ -361,13 +367,12 @@ with col_left:
     x = range(len(ov_df))
     w = 0.55
 
-    bars_pos = ax.bar(x, ov_df["Positive"], width=w, color="#10b981", label="Positive", zorder=3)
-    bars_neu = ax.bar(x, ov_df["Neutral"],  width=w, color="#f59e0b", label="Neutral",
-                  bottom=ov_df["Positive"], zorder=3)
-    bars_neg = ax.bar(x, ov_df["Negative"], width=w, color="#f43f5e", label="Negative",
-                  bottom=ov_df["Positive"] + ov_df["Neutral"], zorder=3)
+    ax.bar(x, ov_df["Positive"], width=w, color="#10b981", label="Positive", zorder=3)
+    ax.bar(x, ov_df["Neutral"],  width=w, color="#f59e0b", label="Neutral",
+           bottom=ov_df["Positive"], zorder=3)
+    ax.bar(x, ov_df["Negative"], width=w, color=PINK, label="Negative",
+           bottom=ov_df["Positive"] + ov_df["Neutral"], zorder=3)
 
-    # n= labels only — no warning triangles
     for idx, (short, row) in enumerate(ov_df.iterrows()):
         ax.text(idx, -7, f"n={row['n']:,}", ha="center", va="top",
             fontsize=8, color=MUTED, fontfamily="monospace")
@@ -380,7 +385,7 @@ with col_left:
     ax.spines[:].set_visible(False)
     ax.yaxis.grid(True, color=BORDER, linewidth=0.5, zorder=0)
     ax.set_axisbelow(True)
-    ax.legend(frameon=False, labelcolor="#4b5563", prop={"family": "monospace", "size": 9},
+    ax.legend(frameon=False, labelcolor=PINK_LT, prop={"family": "monospace", "size": 9},
           ncol=3, loc="upper right")
     plt.tight_layout(pad=0.5)
     st.pyplot(fig)
@@ -390,15 +395,16 @@ with col_right:
     st.markdown('<p class="section-label">Sentiment split — selected product</p>', unsafe_allow_html=True)
     sent_counts = product_df["sentiment"].value_counts()
     labels = sent_counts.index.tolist()
+    pie_colors = {"Positive": "#10b981", "Neutral": "#f59e0b", "Negative": PINK}
     fig2, ax2 = plt.subplots(figsize=(3.5, 3.4))
     fig2.patch.set_facecolor(SURFACE); ax2.set_facecolor(SURFACE)
-    wedges, _, autotexts = ax2.pie(sent_counts.values, colors=[COLORS[l] for l in labels],
+    wedges, _, autotexts = ax2.pie(sent_counts.values, colors=[pie_colors.get(l, PINK) for l in labels],
         autopct="%1.0f%%", startangle=90, pctdistance=0.72,
-        wedgeprops=dict(width=0.55, edgecolor=BG, linewidth=2))
+        wedgeprops=dict(width=0.55, edgecolor=SURFACE, linewidth=2))
     for t in autotexts:
         t.set_color("#fff"); t.set_fontsize(11); t.set_fontweight("bold"); t.set_fontfamily("monospace")
-    ax2.legend(handles=[mpatches.Patch(color=COLORS[l], label=l) for l in labels],
-        frameon=False, labelcolor="#4b5563", loc="lower center",
+    ax2.legend(handles=[mpatches.Patch(color=pie_colors.get(l, PINK), label=l) for l in labels],
+        frameon=False, labelcolor=PINK_LT, loc="lower center",
         prop={"family": "monospace", "size": 9}, ncol=3, bbox_to_anchor=(0.5, -0.08))
     ax2.set_title(selected_short.split(" — ")[0], color=TEXT, fontsize=11, fontfamily="monospace", pad=8)
     plt.tight_layout(pad=0.3); st.pyplot(fig2); plt.close()
@@ -419,7 +425,7 @@ with col_topic:
 
         fig_t, ax_t = plt.subplots(figsize=(5, 3.2))
         fig_t.patch.set_facecolor(SURFACE); ax_t.set_facecolor(SURFACE)
-        palette = ["#f43f5e","#f97316","#f59e0b","#8b5cf6","#6366f1","#10b981"]
+        palette = ["#ec648c","#e91e63","#f48fb1","#c2185b","#ad1457","#ff8fab"]
         bars = ax_t.barh(topic_counts["Topic"], topic_counts["Count"],
                          color=palette[:len(topic_counts)], height=0.55, zorder=3)
         for bar, share in zip(bars, topic_counts["Share"]):
@@ -466,7 +472,7 @@ with col_wc:
     st.markdown('<p class="section-label">Issue keywords — negative reviews word cloud</p>', unsafe_allow_html=True)
     neg_text = " ".join(negative_reviews.astype(str))
     if neg_text.strip():
-        wc = WordCloud(width=700, height=300, background_color=SURFACE, colormap="RdYlGn_r",
+        wc = WordCloud(width=700, height=300, background_color=SURFACE, colormap="RdPu",
                        stopwords=WC_STOPWORDS, max_words=60, prefer_horizontal=0.85,
                        collocations=False, min_word_length=4, relative_scaling=0.6).generate(neg_text)
         fig3, ax3 = plt.subplots(figsize=(6.5, 2.8))
@@ -478,11 +484,11 @@ with col_wc:
 with col_rating:
     st.markdown('<p class="section-label">Rating distribution</p>', unsafe_allow_html=True)
     rating_counts = product_df["rating"].value_counts().sort_index()
-    star_colors = {1:"#f43f5e",2:"#f97316",3:"#f59e0b",4:"#34d399",5:"#10b981"}
+    star_colors = {1:"#be123c",2:"#e91e63",3:"#f48fb1",4:"#f9a8d4",5:"#fce7f3"}
     fig4, ax4 = plt.subplots(figsize=(4.5, 2.8))
     fig4.patch.set_facecolor(SURFACE); ax4.set_facecolor(SURFACE)
     for star, count in rating_counts.items():
-        ax4.barh(f"{'★'*int(star)}", count, color=star_colors.get(int(star), MUTED), height=0.55, zorder=3)
+        ax4.barh(f"{'★'*int(star)}", count, color=star_colors.get(int(star), PINK), height=0.55, zorder=3)
     ax4.spines[:].set_visible(False)
     ax4.tick_params(axis="y", colors=TEXT, labelsize=11)
     ax4.tick_params(axis="x", colors=MUTED, labelsize=9)
@@ -550,7 +556,7 @@ with col_demo:
                 <div class="pipeline-value">{topic_chip}</div>
             </div>
         </div>
-        {'<div class="pipeline-step"><div class="pipeline-icon">📋</div><div class="pipeline-text"><div class="pipeline-label">Step 3 — Recommended Action</div><div class="pipeline-value" style="color:#ea580c;">' + action_text + '</div></div></div>' if action_text and sentiment == "Negative" else ""}
+        {'<div class="pipeline-step"><div class="pipeline-icon">📋</div><div class="pipeline-text"><div class="pipeline-label">Step 3 — Recommended Action</div><div class="pipeline-value" style="color:#f48fb1;">' + action_text + '</div></div></div>' if action_text and sentiment == "Negative" else ""}
         """, unsafe_allow_html=True)
 
         st.markdown("""
