@@ -13,13 +13,13 @@ st.markdown("""
 
 html, body, [class*="css"] {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    background-color: #0d0d0f;
-    color: #f9e8ef;
+    background-color: #fff0f5;
+    color: #3b0a1f;
 }
 .stApp {
-    background: radial-gradient(ellipse at 70% 10%, rgba(220,60,100,0.18) 0%, transparent 55%),
-                radial-gradient(ellipse at 10% 80%, rgba(180,40,80,0.13) 0%, transparent 50%),
-                #0d0d0f;
+    background: radial-gradient(ellipse at 75% 5%, rgba(255,182,210,0.45) 0%, transparent 50%),
+                radial-gradient(ellipse at 5% 90%, rgba(255,210,229,0.35) 0%, transparent 45%),
+                #fff0f5;
 }
 
 /* ── Sidebar ── */
@@ -53,14 +53,14 @@ section[data-testid="stSidebar"] [data-testid="metric-container"] [data-testid="
 
 /* ── Main metric cards ── */
 [data-testid="metric-container"] {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(236,100,140,0.25);
+    background: #ffffff;
+    border: 1px solid #fbc8d9;
     border-radius: 14px;
     padding: 16px;
-    box-shadow: 0 2px 20px rgba(220,60,100,0.1);
+    box-shadow: 0 2px 12px rgba(220,60,100,0.08);
 }
 [data-testid="metric-container"] label {
-    color: #f48fb1 !important;
+    color: #c2185b !important;
     font-family: 'Plus Jakarta Sans', sans-serif !important;
     font-size: 11px !important;
     text-transform: uppercase;
@@ -71,36 +71,36 @@ section[data-testid="stSidebar"] [data-testid="metric-container"] [data-testid="
     font-family: 'Plus Jakarta Sans', sans-serif !important;
     font-size: 26px !important;
     font-weight: 800 !important;
-    color: #ff8fab !important;
+    color: #ad1457 !important;
 }
 
 h1, h2, h3 {
     font-family: 'Plus Jakarta Sans', sans-serif !important;
     letter-spacing: -0.025em;
-    color: #ffffff;
+    color: #3b0a1f;
 }
 
-.stSelectbox label { color: #f48fb1 !important; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+.stSelectbox label { color: #c2185b !important; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
 
-.stTable table { background: rgba(255,255,255,0.03); border: 1px solid rgba(236,100,140,0.2); border-radius: 12px; overflow: hidden; }
+.stTable table { background: #ffffff; border: 1px solid #fbc8d9; border-radius: 12px; overflow: hidden; }
 .stTable th {
-    background: rgba(236,100,140,0.1) !important;
-    color: #f48fb1 !important;
+    background: #fff0f5 !important;
+    color: #c2185b !important;
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    border-bottom: 1px solid rgba(236,100,140,0.2) !important;
+    border-bottom: 1px solid #fbc8d9 !important;
 }
-.stTable td { color: #f9e8ef !important; font-size: 13px; border-color: rgba(236,100,140,0.08) !important; }
+.stTable td { color: #3b0a1f !important; font-size: 13px; border-color: #fff0f5 !important; }
 
-hr { border-color: rgba(236,100,140,0.15); }
+hr { border-color: #fbc8d9; }
 
 .stTextArea textarea {
-    background: rgba(255,255,255,0.04) !important;
-    border: 1px solid rgba(236,100,140,0.3) !important;
-    color: #f9e8ef !important;
+    background: #ffffff !important;
+    border: 1px solid #fbc8d9 !important;
+    color: #3b0a1f !important;
     font-family: 'JetBrains Mono', monospace;
     font-size: 13px;
     border-radius: 10px;
@@ -111,7 +111,7 @@ hr { border-color: rgba(236,100,140,0.15); }
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 11px;
     font-weight: 700;
-    color: #f48fb1;
+    color: #c2185b;
     letter-spacing: 0.07em;
     text-transform: uppercase;
     margin-bottom: 8px;
@@ -131,83 +131,83 @@ hr { border-color: rgba(236,100,140,0.15); }
 
 /* ── Badges ── */
 .badge { display: inline-block; padding: 3px 12px; border-radius: 20px; font-size: 12px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; letter-spacing: 0.03em; }
-.badge-pos { background: rgba(16,185,129,0.18); color: #6ee7b7; border: 1px solid rgba(16,185,129,0.3); }
-.badge-neg { background: rgba(244,63,94,0.18); color: #fda4af; border: 1px solid rgba(244,63,94,0.3); }
-.badge-neu { background: rgba(245,158,11,0.15); color: #fcd34d; border: 1px solid rgba(245,158,11,0.25); }
+.badge-pos { background: #d1fae5; color: #065f46; border: 1px solid #a7f3d0; }
+.badge-neg { background: #ffe4e6; color: #9f1239; border: 1px solid #fecdd3; }
+.badge-neu { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
 
 /* ── Alert / action cards ── */
 .alert-card {
-    background: rgba(244,63,94,0.07);
-    border: 1px solid rgba(244,63,94,0.3);
-    border-left: 4px solid #f43f5e;
+    background: #fff5f7;
+    border: 1px solid #fbc8d9;
+    border-left: 4px solid #e91e63;
     border-radius: 14px;
     padding: 16px 20px;
     margin-bottom: 10px;
-    box-shadow: 0 4px 20px rgba(244,63,94,0.1);
+    box-shadow: 0 2px 12px rgba(233,30,99,0.08);
 }
-.alert-card .alert-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; font-weight: 800; color: #ff8fab; }
-.alert-card .alert-body { font-size: 13px; color: #f9e8ef; margin-top: 6px; line-height: 1.6; opacity: 0.85; }
-.alert-card .alert-action { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #f48fb1; margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(244,63,94,0.2); }
+.alert-card .alert-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; font-weight: 800; color: #ad1457; }
+.alert-card .alert-body { font-size: 13px; color: #3b0a1f; margin-top: 6px; line-height: 1.6; }
+.alert-card .alert-action { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #c2185b; margin-top: 10px; padding-top: 10px; border-top: 1px solid #fbc8d9; }
 
 .action-card {
-    background: rgba(16,185,129,0.07);
-    border: 1px solid rgba(16,185,129,0.25);
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
     border-left: 4px solid #10b981;
     border-radius: 14px;
     padding: 16px 20px;
     margin-bottom: 10px;
-    box-shadow: 0 4px 20px rgba(16,185,129,0.08);
+    box-shadow: 0 2px 12px rgba(16,185,129,0.07);
 }
-.action-card .action-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; font-weight: 800; color: #6ee7b7; }
-.action-card .action-body { font-size: 13px; color: #f9e8ef; margin-top: 6px; line-height: 1.6; opacity: 0.85; }
+.action-card .action-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; font-weight: 800; color: #065f46; }
+.action-card .action-body { font-size: 13px; color: #3b0a1f; margin-top: 6px; line-height: 1.6; }
 
 /* ── Pipeline steps ── */
 .pipeline-step {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(236,100,140,0.18);
+    background: #ffffff;
+    border: 1px solid #fbc8d9;
     border-radius: 12px;
     padding: 12px 16px;
     margin-bottom: 8px;
     display: flex;
     align-items: flex-start;
     gap: 12px;
-    box-shadow: 0 1px 8px rgba(220,60,100,0.07);
+    box-shadow: 0 1px 6px rgba(220,60,100,0.06);
 }
 .pipeline-icon { font-size: 20px; min-width: 28px; text-align: center; padding-top: 2px; }
-.pipeline-text .pipeline-label { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 10px; font-weight: 700; color: #f48fb1; text-transform: uppercase; letter-spacing: 0.08em; }
-.pipeline-text .pipeline-value { font-size: 13px; color: #f9e8ef; margin-top: 2px; line-height: 1.5; opacity: 0.9; }
+.pipeline-text .pipeline-label { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 10px; font-weight: 700; color: #c2185b; text-transform: uppercase; letter-spacing: 0.08em; }
+.pipeline-text .pipeline-value { font-size: 13px; color: #3b0a1f; margin-top: 2px; line-height: 1.5; }
 
 /* ── HITL banner ── */
 .hitl-banner {
-    background: rgba(168,85,247,0.08);
-    border: 1px solid rgba(168,85,247,0.25);
+    background: #fdf4ff;
+    border: 1px solid #e9d5ff;
     border-left: 4px solid #a855f7;
     border-radius: 12px;
     padding: 14px 18px;
     margin-top: 12px;
 }
-.hitl-banner .hitl-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; font-weight: 800; color: #d8b4fe; text-transform: uppercase; letter-spacing: 0.06em; }
-.hitl-banner .hitl-body { font-size: 12px; color: #f9e8ef; margin-top: 5px; line-height: 1.6; opacity: 0.8; }
+.hitl-banner .hitl-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; font-weight: 800; color: #7e22ce; text-transform: uppercase; letter-spacing: 0.06em; }
+.hitl-banner .hitl-body { font-size: 12px; color: #3b0a1f; margin-top: 5px; line-height: 1.6; }
 
 /* ── Chips ── */
 .chip { display: inline-block; padding: 4px 11px; border-radius: 6px; font-size: 11px; font-family: 'Plus Jakarta Sans', sans-serif; margin: 2px 3px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
-.chip-hardware { background: rgba(59,130,246,0.15); color: #93c5fd; border: 1px solid rgba(59,130,246,0.3); }
-.chip-software { background: rgba(16,185,129,0.12); color: #6ee7b7; border: 1px solid rgba(16,185,129,0.25); }
-.chip-support  { background: rgba(244,63,94,0.15); color: #fda4af; border: 1px solid rgba(244,63,94,0.3); }
-.chip-battery  { background: rgba(249,115,22,0.12); color: #fdba74; border: 1px solid rgba(249,115,22,0.25); }
-.chip-build    { background: rgba(168,85,247,0.12); color: #d8b4fe; border: 1px solid rgba(168,85,247,0.25); }
+.chip-hardware { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+.chip-software { background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; }
+.chip-support  { background: #fff1f2; color: #be123c; border: 1px solid #fecdd3; }
+.chip-battery  { background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; }
+.chip-build    { background: #faf5ff; color: #7e22ce; border: 1px solid #e9d5ff; }
 </style>
 """, unsafe_allow_html=True)
 
 # ── Constants ──────────────────────────────────────────────
 COLORS  = {"Positive": "#10b981", "Neutral": "#f59e0b", "Negative": "#f43f5e"}
-BG      = "#0d0d0f"
-SURFACE = "#130a0e"
-BORDER  = "#3d1a25"
-TEXT    = "#f9e8ef"
-MUTED   = "#f48fb1"
+BG      = "#fff0f5"
+SURFACE = "#ffffff"
+BORDER  = "#fbc8d9"
+TEXT    = "#3b0a1f"
+MUTED   = "#c2185b"
 PINK    = "#ec648c"
-PINK_LT = "#ffb3c6"
+PINK_LT = "#ad1457"
 
 SHORT_NAMES = {
     "FusionTech 15.6-Inch Gaming Laptop (6th Gen Intel Quad-Core i5-6300HQ Processor up to 3.2GHz, 8GB DDR3, 256GB SSD, Nvidia GeForce GTX 960M, Windows 10)":
@@ -330,14 +330,14 @@ with st.sidebar:
 st.markdown(f"""
 <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:4px;">
   <div>
-    <h1 style="font-size:2.1rem;margin:0;font-weight:800;color:#ffffff;font-family:'Plus Jakarta Sans',sans-serif;">Customer Feedback Intelligence</h1>
-    <p style="color:#f48fb1;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:600;margin-top:6px;letter-spacing:-0.01em;">
+    <h1 style="font-size:2.1rem;margin:0;font-weight:800;color:#3b0a1f;font-family:'Plus Jakarta Sans',sans-serif;">Customer Feedback Intelligence</h1>
+    <p style="color:#c2185b;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:600;margin-top:6px;letter-spacing:-0.01em;">
         Challenge 1: Eliminate Feedback Blind Spots &middot; Top 5 products by review volume
     </p>
   </div>
   <div style="text-align:right;">
-    <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#f48fb1;">AI PIPELINE</span><br>
-    <span style="font-size:12px;color:#ffb3c6;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;">Sentiment Analysis + Topic Classification</span>
+    <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#c2185b;">AI PIPELINE</span><br>
+    <span style="font-size:12px;color:#ad1457;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;">Sentiment Analysis + Topic Classification</span>
   </div>
 </div>
 """, unsafe_allow_html=True)
