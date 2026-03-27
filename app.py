@@ -9,90 +9,94 @@ st.set_page_config(page_title="FusionTech AI Review Intelligence", page_icon="�
 
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
 
 html, body, [class*="css"] {
-    font-family: 'Inter', sans-serif;
-    background-color: #f0f2f5;
-    color: #111827;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #f1f0f9;
+    color: #1e1b4b;
 }
-.stApp { background-color: #f0f2f5; }
+.stApp { background-color: #f1f0f9; }
 
 /* ── Sidebar ── */
 section[data-testid="stSidebar"] {
-    background: linear-gradient(160deg, #1e293b 0%, #0f172a 100%);
+    background: linear-gradient(160deg, #312e81 0%, #1e1b4b 100%);
     border-right: none;
 }
-section[data-testid="stSidebar"] * { color: #e2e8f0 !important; }
+section[data-testid="stSidebar"] * { color: #e0e7ff !important; }
 section[data-testid="stSidebar"] h2 { color: #ffffff !important; font-size: 1.1rem !important; }
 section[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,0.12) !important; }
-section[data-testid="stSidebar"] .stSelectbox label { color: #94a3b8 !important; }
+section[data-testid="stSidebar"] .stSelectbox label { color: #a5b4fc !important; }
 section[data-testid="stSidebar"] [data-testid="metric-container"] {
-    background: rgba(255,255,255,0.07) !important;
-    border: 1px solid rgba(255,255,255,0.12) !important;
+    background: rgba(255,255,255,0.08) !important;
+    border: 1px solid rgba(165,180,252,0.25) !important;
     border-radius: 10px;
     padding: 12px 16px;
 }
 section[data-testid="stSidebar"] [data-testid="metric-container"] label {
-    color: #94a3b8 !important;
-    font-family: 'Inter', sans-serif !important;
+    color: #a5b4fc !important;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
     font-size: 11px !important;
     text-transform: uppercase;
     letter-spacing: 0.06em;
 }
 section[data-testid="stSidebar"] [data-testid="metric-container"] [data-testid="stMetricValue"] {
-    font-family: 'Inter', sans-serif !important;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
     font-size: 24px !important;
-    font-weight: 700 !important;
+    font-weight: 800 !important;
     color: #ffffff !important;
 }
 
 /* ── Main metric cards ── */
 [data-testid="metric-container"] {
     background: #ffffff;
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
+    border: 1px solid #e0e7ff;
+    border-radius: 14px;
     padding: 16px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    box-shadow: 0 2px 8px rgba(99,102,241,0.07);
 }
 [data-testid="metric-container"] label {
-    color: #6b7280 !important;
-    font-family: 'Inter', sans-serif !important;
+    color: #6366f1 !important;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
     font-size: 11px !important;
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    font-weight: 500;
+    font-weight: 600;
 }
 [data-testid="metric-container"] [data-testid="stMetricValue"] {
-    font-family: 'Inter', sans-serif !important;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
     font-size: 26px !important;
-    font-weight: 700 !important;
-    color: #111827 !important;
+    font-weight: 800 !important;
+    color: #1e1b4b !important;
 }
 
-h1, h2, h3 { font-family: 'Inter', sans-serif !important; letter-spacing: -0.02em; color: #111827; }
+h1, h2, h3 {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    letter-spacing: -0.025em;
+    color: #1e1b4b;
+}
 
-.stSelectbox label { color: #6b7280 !important; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; }
+.stSelectbox label { color: #6366f1 !important; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
 
-.stTable table { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 10px; overflow: hidden; }
+.stTable table { background: #ffffff; border: 1px solid #e0e7ff; border-radius: 12px; overflow: hidden; }
 .stTable th {
-    background: #f9fafb !important;
-    color: #6b7280 !important;
-    font-family: 'Inter', sans-serif;
+    background: #eef2ff !important;
+    color: #4338ca !important;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 11px;
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    border-bottom: 1px solid #e5e7eb !important;
+    border-bottom: 1px solid #e0e7ff !important;
 }
-.stTable td { color: #111827 !important; font-size: 13px; border-color: #f3f4f6 !important; }
+.stTable td { color: #1e1b4b !important; font-size: 13px; border-color: #f5f3ff !important; }
 
-hr { border-color: #e5e7eb; }
+hr { border-color: #e0e7ff; }
 
 .stTextArea textarea {
     background: #ffffff !important;
-    border: 1px solid #d1d5db !important;
-    color: #111827 !important;
+    border: 1px solid #c7d2fe !important;
+    color: #1e1b4b !important;
     font-family: 'JetBrains Mono', monospace;
     font-size: 13px;
     border-radius: 10px;
@@ -100,10 +104,10 @@ hr { border-color: #e5e7eb; }
 
 /* ── Section labels ── */
 .section-label {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 11px;
-    font-weight: 600;
-    color: #6b7280;
+    font-weight: 700;
+    color: #4338ca;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     margin-bottom: 8px;
@@ -116,89 +120,88 @@ hr { border-color: #e5e7eb; }
     display: inline-block;
     width: 3px;
     height: 14px;
-    background: #6366f1;
+    background: linear-gradient(180deg, #818cf8, #6366f1);
     border-radius: 2px;
     flex-shrink: 0;
 }
 
 /* ── Badges ── */
-.badge { display: inline-block; padding: 3px 12px; border-radius: 20px; font-size: 12px; font-family: 'Inter', sans-serif; font-weight: 600; letter-spacing: 0.03em; }
-.badge-pos { background: #dcfce7; color: #15803d; }
-.badge-neg { background: #fee2e2; color: #b91c1c; }
-.badge-neu { background: #fef9c3; color: #a16207; }
+.badge { display: inline-block; padding: 3px 12px; border-radius: 20px; font-size: 12px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; letter-spacing: 0.03em; }
+.badge-pos { background: #d1fae5; color: #065f46; }
+.badge-neg { background: #ffe4e6; color: #9f1239; }
+.badge-neu { background: #fef3c7; color: #92400e; }
 
 /* ── Alert / action cards ── */
 .alert-card {
     background: #ffffff;
-    border: 1px solid #fecaca;
-    border-left: 4px solid #ef4444;
-    border-radius: 12px;
+    border: 1px solid #fecdd3;
+    border-left: 4px solid #f43f5e;
+    border-radius: 14px;
     padding: 16px 20px;
     margin-bottom: 10px;
-    box-shadow: 0 1px 4px rgba(239,68,68,0.08);
+    box-shadow: 0 2px 8px rgba(244,63,94,0.07);
 }
-.alert-card .alert-title { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; color: #dc2626; }
+.alert-card .alert-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; font-weight: 800; color: #be123c; }
 .alert-card .alert-body { font-size: 13px; color: #374151; margin-top: 6px; line-height: 1.6; }
-.alert-card .alert-action { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #ea580c; margin-top: 10px; padding-top: 10px; border-top: 1px solid #fee2e2; }
+.alert-card .alert-action { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #ea580c; margin-top: 10px; padding-top: 10px; border-top: 1px solid #ffe4e6; }
 
 .action-card {
     background: #ffffff;
-    border: 1px solid #bbf7d0;
-    border-left: 4px solid #22c55e;
-    border-radius: 12px;
+    border: 1px solid #a7f3d0;
+    border-left: 4px solid #10b981;
+    border-radius: 14px;
     padding: 16px 20px;
     margin-bottom: 10px;
-    box-shadow: 0 1px 4px rgba(34,197,94,0.08);
+    box-shadow: 0 2px 8px rgba(16,185,129,0.07);
 }
-.action-card .action-title { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; color: #16a34a; }
+.action-card .action-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; font-weight: 800; color: #065f46; }
 .action-card .action-body { font-size: 13px; color: #374151; margin-top: 6px; line-height: 1.6; }
 
 /* ── Pipeline steps ── */
 .pipeline-step {
     background: #ffffff;
-    border: 1px solid #e5e7eb;
+    border: 1px solid #e0e7ff;
     border-radius: 12px;
     padding: 12px 16px;
     margin-bottom: 8px;
     display: flex;
     align-items: flex-start;
     gap: 12px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    transition: box-shadow 0.2s;
+    box-shadow: 0 1px 4px rgba(99,102,241,0.06);
 }
 .pipeline-icon { font-size: 20px; min-width: 28px; text-align: center; padding-top: 2px; }
-.pipeline-text .pipeline-label { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.08em; }
-.pipeline-text .pipeline-value { font-size: 13px; color: #111827; margin-top: 2px; line-height: 1.5; }
+.pipeline-text .pipeline-label { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 10px; font-weight: 700; color: #6366f1; text-transform: uppercase; letter-spacing: 0.08em; }
+.pipeline-text .pipeline-value { font-size: 13px; color: #1e1b4b; margin-top: 2px; line-height: 1.5; }
 
 /* ── HITL banner ── */
 .hitl-banner {
     background: #faf5ff;
-    border: 1px solid #e9d5ff;
-    border-left: 4px solid #a855f7;
+    border: 1px solid #ddd6fe;
+    border-left: 4px solid #8b5cf6;
     border-radius: 12px;
     padding: 14px 18px;
     margin-top: 12px;
 }
-.hitl-banner .hitl-title { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; color: #9333ea; text-transform: uppercase; letter-spacing: 0.06em; }
+.hitl-banner .hitl-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; font-weight: 800; color: #7c3aed; text-transform: uppercase; letter-spacing: 0.06em; }
 .hitl-banner .hitl-body { font-size: 12px; color: #4b5563; margin-top: 5px; line-height: 1.6; }
 
 /* ── Chips ── */
-.chip { display: inline-block; padding: 4px 11px; border-radius: 6px; font-size: 11px; font-family: 'Inter', sans-serif; margin: 2px 3px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
+.chip { display: inline-block; padding: 4px 11px; border-radius: 6px; font-size: 11px; font-family: 'Plus Jakarta Sans', sans-serif; margin: 2px 3px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
 .chip-hardware { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
 .chip-software { background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; }
 .chip-support  { background: #fff1f2; color: #be123c; border: 1px solid #fecdd3; }
 .chip-battery  { background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; }
-.chip-build    { background: #faf5ff; color: #7e22ce; border: 1px solid #e9d5ff; }
+.chip-build    { background: #faf5ff; color: #7e22ce; border: 1px solid #ddd6fe; }
 </style>
 """, unsafe_allow_html=True)
 
 # ── Constants ──────────────────────────────────────────────
-COLORS  = {"Positive": "#22c55e", "Neutral": "#eab308", "Negative": "#ef4444"}
-BG      = "#f0f2f5"
+COLORS  = {"Positive": "#10b981", "Neutral": "#f59e0b", "Negative": "#f43f5e"}
+BG      = "#f1f0f9"
 SURFACE = "#ffffff"
-BORDER  = "#e5e7eb"
-TEXT    = "#111827"
-MUTED   = "#9ca3af"
+BORDER  = "#e0e7ff"
+TEXT    = "#1e1b4b"
+MUTED   = "#818cf8"
 
 SHORT_NAMES = {
     "FusionTech 15.6-Inch Gaming Laptop (6th Gen Intel Quad-Core i5-6300HQ Processor up to 3.2GHz, 8GB DDR3, 256GB SSD, Nvidia GeForce GTX 960M, Windows 10)":
@@ -303,9 +306,9 @@ with st.sidebar:
 
     if pct_neg > 25 or avg_r < 3.5:
         st.markdown("""
-        <div style="background:#fff8f8;border:1px solid #ef4444;border-radius:8px;padding:10px 14px;margin:8px 0;">
-            <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#dc2626;font-weight:600;">⚠ ACTION REQUIRED</span><br>
-            <span style="font-size:12px;color:#555;">High complaint rate detected</span>
+        <div style="background:rgba(244,63,94,0.12);border:1px solid #f43f5e;border-radius:8px;padding:10px 14px;margin:8px 0;">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#fb7185;font-weight:600;">⚠ ACTION REQUIRED</span><br>
+            <span style="font-size:12px;color:#fda4af;">High complaint rate detected</span>
         </div>""", unsafe_allow_html=True)
 
     st.markdown("---")
@@ -315,20 +318,20 @@ with st.sidebar:
     st.metric("Negative",      f"{pct_neg:.0f}%")
     st.markdown("---")
     st.markdown('<p class="section-label">Powered by Dell PowerEdge</p>', unsafe_allow_html=True)
-    st.markdown('<p style="font-size:11px;color:#666;font-family:\'JetBrains Mono\',monospace;">GPU-accelerated NLP<br>Real-time inference · &lt;1s latency</p>', unsafe_allow_html=True)
+    st.markdown('<p style="font-size:11px;color:#a5b4fc;font-family:\'JetBrains Mono\',monospace;">GPU-accelerated NLP<br>Real-time inference · &lt;1s latency</p>', unsafe_allow_html=True)
 
 # ── Header ─────────────────────────────────────────────────
 st.markdown(f"""
 <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:4px;">
   <div>
-    <h1 style="font-size:1.9rem;margin:0;font-weight:700;color:#1a1a1a;">Customer Feedback Intelligence</h1>
-    <p style="color:{MUTED};font-family:'JetBrains Mono',monospace;font-size:11px;margin-top:4px;">
-        Challenge 1: Eliminate Feedback Blind Spots · Top 5 products by review volume
+    <h1 style="font-size:2.1rem;margin:0;font-weight:800;color:#1e1b4b;font-family:'Plus Jakarta Sans',sans-serif;">Customer Feedback Intelligence</h1>
+    <p style="color:#4338ca;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:600;margin-top:6px;letter-spacing:-0.01em;">
+        Challenge 1: Eliminate Feedback Blind Spots &middot; Top 5 products by review volume
     </p>
   </div>
   <div style="text-align:right;">
-    <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#bbb;">AI PIPELINE</span><br>
-    <span style="font-size:12px;color:#9333ea;">Sentiment Analysis + Topic Classification</span>
+    <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#a5b4fc;">AI PIPELINE</span><br>
+    <span style="font-size:12px;color:#8b5cf6;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;">Sentiment Analysis + Topic Classification</span>
   </div>
 </div>
 """, unsafe_allow_html=True)
@@ -358,16 +361,14 @@ with col_left:
     x = range(len(ov_df))
     w = 0.55
 
-    bars_pos = ax.bar(x, ov_df["Positive"], width=w, color="#22c55e", label="Positive", zorder=3)
-    bars_neu = ax.bar(x, ov_df["Neutral"],  width=w, color="#eab308", label="Neutral",
+    bars_pos = ax.bar(x, ov_df["Positive"], width=w, color="#10b981", label="Positive", zorder=3)
+    bars_neu = ax.bar(x, ov_df["Neutral"],  width=w, color="#f59e0b", label="Neutral",
                   bottom=ov_df["Positive"], zorder=3)
-    bars_neg = ax.bar(x, ov_df["Negative"], width=w, color="#ef4444", label="Negative",
+    bars_neg = ax.bar(x, ov_df["Negative"], width=w, color="#f43f5e", label="Negative",
                   bottom=ov_df["Positive"] + ov_df["Neutral"], zorder=3)
 
+    # n= labels only — no warning triangles
     for idx, (short, row) in enumerate(ov_df.iterrows()):
-        if row["pct_neg"] > 30:
-            ax.annotate("⚠", xy=(idx, 100), xytext=(0, 4),
-                    textcoords="offset points", ha="center", fontsize=10, color="#ef4444")
         ax.text(idx, -7, f"n={row['n']:,}", ha="center", va="top",
             fontsize=8, color=MUTED, fontfamily="monospace")
 
@@ -379,7 +380,7 @@ with col_left:
     ax.spines[:].set_visible(False)
     ax.yaxis.grid(True, color=BORDER, linewidth=0.5, zorder=0)
     ax.set_axisbelow(True)
-    ax.legend(frameon=False, labelcolor=MUTED, prop={"family": "monospace", "size": 9},
+    ax.legend(frameon=False, labelcolor="#4b5563", prop={"family": "monospace", "size": 9},
           ncol=3, loc="upper right")
     plt.tight_layout(pad=0.5)
     st.pyplot(fig)
@@ -397,7 +398,7 @@ with col_right:
     for t in autotexts:
         t.set_color("#fff"); t.set_fontsize(11); t.set_fontweight("bold"); t.set_fontfamily("monospace")
     ax2.legend(handles=[mpatches.Patch(color=COLORS[l], label=l) for l in labels],
-        frameon=False, labelcolor=MUTED, loc="lower center",
+        frameon=False, labelcolor="#4b5563", loc="lower center",
         prop={"family": "monospace", "size": 9}, ncol=3, bbox_to_anchor=(0.5, -0.08))
     ax2.set_title(selected_short.split(" — ")[0], color=TEXT, fontsize=11, fontfamily="monospace", pad=8)
     plt.tight_layout(pad=0.3); st.pyplot(fig2); plt.close()
@@ -418,7 +419,7 @@ with col_topic:
 
         fig_t, ax_t = plt.subplots(figsize=(5, 3.2))
         fig_t.patch.set_facecolor(SURFACE); ax_t.set_facecolor(SURFACE)
-        palette = ["#ef4444","#f97316","#eab308","#a855f7","#3b82f6","#22c55e"]
+        palette = ["#f43f5e","#f97316","#f59e0b","#8b5cf6","#6366f1","#10b981"]
         bars = ax_t.barh(topic_counts["Topic"], topic_counts["Count"],
                          color=palette[:len(topic_counts)], height=0.55, zorder=3)
         for bar, share in zip(bars, topic_counts["Share"]):
@@ -477,7 +478,7 @@ with col_wc:
 with col_rating:
     st.markdown('<p class="section-label">Rating distribution</p>', unsafe_allow_html=True)
     rating_counts = product_df["rating"].value_counts().sort_index()
-    star_colors = {1:"#ef4444",2:"#f97316",3:"#eab308",4:"#84cc16",5:"#22c55e"}
+    star_colors = {1:"#f43f5e",2:"#f97316",3:"#f59e0b",4:"#34d399",5:"#10b981"}
     fig4, ax4 = plt.subplots(figsize=(4.5, 2.8))
     fig4.patch.set_facecolor(SURFACE); ax4.set_facecolor(SURFACE)
     for star, count in rating_counts.items():
