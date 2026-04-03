@@ -1,8 +1,9 @@
+import re
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
-from wordcloud import WordCloud
+from wordcloud import WordCloud, STOPWORDS
 from sklearn.feature_extraction.text import CountVectorizer
 
 st.set_page_config(page_title="FusionTech AI Review Intelligence", page_icon="⚡", layout="wide")
@@ -249,7 +250,43 @@ ACTION_MAP  = {
         "→ Adjust product tier positioning. Review supplier QC standards."),
 }
 
-WC_STOPWORDS = {
+# Merge inflected / plural forms so one concept = one token (wordcloud has no lemmatizer).
+_WC_TOKEN_ALIASES = (
+    (r"\bgaming\b", "game"),
+    (r"\bgames\b", "game"),
+    (r"\bgamers\b", "game"),
+    (r"\bdrivers\b", "driver"),
+    (r"\bupdates\b", "update"),
+    (r"\bgraphics\b", "graphic"),
+    (r"\bkeyboards\b", "keyboard"),
+    (r"\bdisplays\b", "display"),
+    (r"\bscreens\b", "screen"),
+    (r"\bhinges\b", "hinge"),
+    (r"\bbatteries\b", "battery"),
+    (r"\bcomputers\b", "computer"),
+)
+
+
+def _preprocess_for_wordcloud(text: str) -> str:
+    """Lowercase, split glued contractions, merge common word variants for a clearer cloud."""
+    s = str(text).lower()
+    s = s.replace("\u2019", "'").replace("\u2018", "'")
+    # Word stuck to English contraction / negation (no space before)
+    s = re.sub(
+        r"([a-z]{3,})(doesn'?t|don'?t|can'?t|won'?t|isn'?t|haven'?t|hasn'?t|hadn'?t|wouldn'?t|"
+        r"couldn'?t|shouldn'?t|aren'?t|wasn'?t|weren'?t|mightn'?t|doesnt|dont|cant|wont|isnt|"
+        r"wasnt|arent|hasnt|havent|wouldnt|couldnt|shouldnt|didnt|youre|theyre|"
+        r"weve|theyve|thats|theres|whats|heres)",
+        r"\1 \2",
+        s,
+    )
+    for pattern, repl in _WC_TOKEN_ALIASES:
+        s = re.sub(pattern, repl, s)
+    return s
+
+
+# WordCloud's built-in English list + domain noise for review text (meta-complaint words, fillers).
+WC_STOPWORDS = STOPWORDS | {
     "a","an","the","this","that","these","those","my","your","his","her","our","their","its",
     "i","me","we","us","you","he","she","it","they","them","him","who","which","what",
     "is","are","was","were","be","been","being","am","have","has","had","do","does","did",
@@ -262,12 +299,52 @@ WC_STOPWORDS = {
     "some","any","all","no","not","same","own","other","again","away",
     "really","actually","basically","literally","definitely","probably","maybe","quite",
     "though","because","since","while","although","however","already","always","never",
-    "much","many","how","re","ll","ve","don","doesn","didn","won","can","couldn","wasn",
+    "much","many","how","re","ll","ve","don","doesn","didn","won","couldn","wasn",
     "computer","laptop","fusiontech","device","product","pc","machine","system","buy",
     "bought","purchase","purchased","ordered","order","item","one","two","three",
     "month","months","week","weeks","day","days","year","years","time","times",
     "review","reviewer","star","stars","rating","amazon","price","money","paid",
     "received","delivery","shipped","shipping","package","box","sent","send",
+    # Redundant in a negative-review “issue” cloud (every review is a complaint)
+    "issue","issues","problem","problems","complaint","complaints","trouble","wrong",
+    # Generic verbs / fillers that dominate without adding product insight
+    "work","works","working","worked","like","liked","thing","things","something","anything",
+    "nothing","everything","someone","anyone","everyone","somebody","anybody",
+    "first","second","third","last","next","another","else","half","whole","full","empty",
+    "down","left","right","open","opened","turn","turned","start","started","try","tried",
+    "find","found","give","gave","gotten","keep","kept","put","come","came","went","gone",
+    "make","made","seem","seems","seemed","look","looks","looked","feel","feels","felt",
+    # Sentiment / vague adjectives (little diagnostic value)
+    "good","great","better","best","fine","okay","nice","bad","worse","worst","pretty",
+    "quite","rather","totally","completely","absolutely","especially","probably","maybe",
+    # Ambiguous without a second word (e.g. “hard drive”)
+    "hard",
+    # Tokenization leftovers (glued words before preprocessing)
+    "linuxdoesnt","linuxdoesn't",
+    # Plurals / variants not in STOPWORDS
+    "laptops","customer","customers",
+    # Common English function words missing from wordcloud STOPWORDS
+    "every","without","within","whether","either","neither",
+    # Time units (little meaning alone)
+    "minute","minutes","hour","hours",
+    # Review filler / vague quantifiers (often top-ranked but not diagnostic)
+    "mostly","mainly","largely","partly","enough","several","little","somewhat","fairly",
+    "happen","happened","happens","maybe","perhaps",
+    "took",
+    "less","least","more","much","mine","yours","cant",
+    "runs","run","running","ran","seem","seems","seemed",
+    "point","points","side","sides","case","cases","kind","sort",
+    "play","playing","played","player",
+    # Generic “tech” bucket words (prefer specific parts: screen, driver, battery, …)
+    "tech","technical","hardware","software","device","devices",
+    # Pure sentiment / attitude (cloud is already negative-only)
+    "disappointed","disappointing","terrible","horrible","awful","poorly","sadly","unfortunately",
+    "recommend","recommended","recommending","amazing","awesome","fantastic",
+    "fixed","fixing","thanks","thank","please",
+    # Generic service nouns / verbs
+    "agent","agents","brand","brands","call","called","calling","email","emails","click",
+    # Vague narrative / meta (still surfaces after stricter filtering)
+    "trying","almost","told","long","file","files","model","models","cost","costs","worth",
 }
 BIGRAM_BLOCK = {
     "buy fusiontech","fusiontech laptop","fusiontech gaming","dell laptop","new laptop",
@@ -470,7 +547,7 @@ col_wc, col_rating = st.columns([3, 2], gap="large")
 
 with col_wc:
     st.markdown('<p class="section-label">Issue keywords — negative reviews word cloud</p>', unsafe_allow_html=True)
-    neg_text = " ".join(negative_reviews.astype(str))
+    neg_text = " ".join(_preprocess_for_wordcloud(t) for t in negative_reviews.astype(str))
     if neg_text.strip():
         wc = WordCloud(width=700, height=300, background_color=SURFACE, colormap="RdPu",
                        stopwords=WC_STOPWORDS, max_words=60, prefer_horizontal=0.85,
